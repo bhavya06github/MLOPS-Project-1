@@ -32,7 +32,7 @@ class TrainPipeline:
 
     def start_data_ingestion(self)-> DataIngestionArtifact:
         """
-        This mehtod of TrainPipeline class is responsible for starting data ingestion component
+        This method of TrainPipeline class is responsible for starting data ingestion component
         """
         try:
             logging.info("Entered the start_data_ingestion method of trainPipeline class")
@@ -48,7 +48,7 @@ class TrainPipeline:
         
     def run_pipeline(self, )-> None:
         """
-        This method of TrainPipeline class is responsible fro running complete pipeline
+        This method of TrainPipeline class is responsible for running complete pipeline
         """
         try:
             data_ingestion_artifact = self.start_data_ingestion()

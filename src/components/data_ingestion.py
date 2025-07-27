@@ -11,19 +11,19 @@ from src.logger import logging
 from src.data_access.proj1_data import Proj1Data
 
 class DataIngestion:
-    def __init__(self, data_ingestion_config:DataIngestionConfig=DataIngestionConfig()):# why did I need to import dataingestionconfig as a method even if it is a class
+    def __init__(self, data_ingestion_config:DataIngestionConfig=DataIngestionConfig()):  
         """
         param data_ ingestion_ config: configuration for data ingestion
         """
         try:
-            self.data_ingestion_config = data_ingestion_config
+            self.data_ingestion_config = data_ingestion_config # configuration of all the components/requirements are copied into this variabel: data_ingestion config
         except Exception as e:
             raise MyException(e,sys)
-        
+         
     def export_data_into_feature_store(self)-> DataFrame:
         """
         Method Name : export_data_into_feature_store
-        Description : this method exports data from mondodb to csv file
+        Description : this method exports data from mongodb to csv file
 
         Output      : data is returned as artifact of data ingestion components
         On Failure  : write an exception log and then raise an exception 

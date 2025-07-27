@@ -6,6 +6,7 @@ from typing import Optional
 from src.configuration.mongodb_connection import MongoDBClient
 from src.constants import DATABASE_NAME
 from src.exception import MyException
+from src.logger import logging
 
 class Proj1Data:
     '''
@@ -29,20 +30,20 @@ class Proj1Data:
         try:
             # Select the collection from the specified or default database
             if database_name is None:
-                print(f"Using default database: {self.mongo_client.database.name}")
+                logging.info(f"Using default database: {self.mongo_client.database.name}")
                 collection = self.mongo_client.database[collection_name]
             else:
-                print(f"Using database: {database_name}")
+                logging.info(f"Using database: {database_name}")
                 db_client = getattr(self.mongo_client, "client", None)
                 if db_client is None:
                     raise MyException(Exception("MongoDB client is not initialized properly."), sys)
                 db = db_client[database_name]
                 collection = db[collection_name]
-            print(f"Using collection: {collection_name}")
-            print('fetching data from mongoDB')
+            logging.info(f"Using collection: {collection_name}")
+            logging.info('fetching data from mongoDB')
             # Fetch all documents from the collection and convert to DataFrame
             df = pd.DataFrame(list(collection.find()))
-            print(f"data fetched with len: {len(df)}")
+            logging.info(f"data fetched with len: {len(df)}")
 
             # Remove 'id' column if it exists
             if 'id' in df.columns.to_list():

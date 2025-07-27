@@ -1,6 +1,7 @@
 mongodb_demo.ipynb
 logs
 artifact
+flow.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
