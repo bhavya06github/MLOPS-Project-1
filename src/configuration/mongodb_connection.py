@@ -2,7 +2,7 @@ import os
 import sys
 import pymongo
 import certifi
-
+from dotenv import load_dotenv
 from src.exception import MyException
 from src.logger import  logging #configure_logger # tha toh logging but usme error aayega
 from src.constants import DATABASE_NAME, MONGODB_URL_KEY
