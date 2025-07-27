@@ -1,11 +1,16 @@
 import os
+from dotenv import load_dotenv
+from pathlib import Path
 import sys
 import pymongo
 import certifi
-from dotenv import load_dotenv
 from src.exception import MyException
 from src.logger import  logging #configure_logger # tha toh logging but usme error aayega
 from src.constants import DATABASE_NAME, MONGODB_URL_KEY
+
+env_path = Path(__file__).resolve().parents[2] / ".env"
+print("Loading from:", env_path)  # Debug line
+load_dotenv(dotenv_path=env_path)
 
 # This gets the path to the certificate authority file.
 # It's needed so MongoDB doesn't complain about security stuff (SSL).
