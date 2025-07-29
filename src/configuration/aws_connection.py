@@ -1,6 +1,12 @@
 import boto3 
 import os
+from dotenv import load_dotenv
+from pathlib import Path
 from src.constants import AWS_ACCESS_KEY_ID_ENV_KEY, AWS_SECRET_ACCESS_KEY_ENV_KEY, REGION_NAME
+
+env_path = Path(__file__).resolve().parents[2] / ".env"
+print("Loading from:", env_path)  # Debug line
+load_dotenv(dotenv_path=env_path)
 
 class S3Client:
     s3_client = None
